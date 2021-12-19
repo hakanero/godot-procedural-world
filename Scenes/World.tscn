@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/Terrain.cs" type="Script" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Sky.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=5]
+[ext_resource path="res://Materials/Sky.tres" type="Material" id=6]
+[ext_resource path="res://Materials/Environemnt.tres" type="Environment" id=7]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 100
+octaves = 5
+
+[sub_resource type="Curve" id=4]
+min_value = -1.0
+_data = [ Vector2( 0, -1 ), 0.0, 0.0, 0, 0, Vector2( 0.240385, -0.339623 ), 1.61598, 1.61598, 0, 0, Vector2( 0.456731, -0.132075 ), 0.588679, 0.588679, 0, 0, Vector2( 0.701923, 0.188679 ), 0.872117, 0.872117, 0, 0, Vector2( 1, 1 ), -0.160185, 0.0, 0, 0 ]
+
+[sub_resource type="SphereMesh" id=7]
+
+[sub_resource type="SphereShape" id=8]
+
+[node name="World" type="Node"]
+script = ExtResource( 5 )
+
+[node name="Terrain" type="Spatial" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+noise = SubResource( 1 )
+curve = SubResource( 4 )
+chunkSize = 64
+chunksAround = 24
+heightMultiplier = 256.0
+sampleSize = 0.2
+playerNode = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 0, 0 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="Sky" type="Viewport" parent="."]
+size = Vector2( 1280, 720 )
+render_target_update_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="Sky"]
+material = ExtResource( 6 )
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 4 )
+cloud_speed = 0.3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 7 )
+
+[node name="RigidBody" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+shape = SubResource( 8 )

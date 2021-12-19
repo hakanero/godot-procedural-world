@@ -1,0 +1,36 @@
+[gd_resource type="Environment" load_steps=3 format=2]
+
+[sub_resource type="ViewportTexture" id=9]
+viewport_path = NodePath("Sky")
+
+[sub_resource type="PanoramaSky" id=8]
+resource_local_to_scene = true
+panorama = SubResource( 9 )
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 8 )
+background_canvas_max_layer = 1
+ambient_light_color = Color( 1, 0.996078, 0.968627, 1 )
+ambient_light_energy = 0.3
+ambient_light_sky_contribution = 0.0
+fog_enabled = true
+fog_depth_begin = 100.0
+fog_depth_end = 500.0
+fog_depth_curve = 1.51572
+fog_transmit_enabled = true
+tonemap_mode = 4
+auto_exposure_enabled = true
+ssao_radius = 68.41
+ssao_intensity = 128.0
+ssao_radius2 = 128.0
+ssao_intensity2 = 0.0
+ssao_bias = 8.0
+dof_blur_far_enabled = true
+dof_blur_far_distance = 200.0
+dof_blur_far_transition = 50.0
+dof_blur_far_amount = 0.05
+glow_intensity = 8.0
+adjustment_enabled = true
+adjustment_contrast = 1.2
+adjustment_saturation = 1.1

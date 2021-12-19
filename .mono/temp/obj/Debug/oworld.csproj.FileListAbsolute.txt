@@ -1,0 +1,9 @@
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\bin\Debug\oworld.dll
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\bin\Debug\oworld.pdb
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\obj\Debug\oworld.csproj.AssemblyReference.cache
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\obj\Debug\oworld.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\obj\Debug\oworld.AssemblyInfoInputs.cache
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\obj\Debug\oworld.AssemblyInfo.cs
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\obj\Debug\oworld.csproj.CoreCompileInputs.cache
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\obj\Debug\oworld.dll
+C:\Users\Hakan\Documents\Godot\oworld\.mono\temp\obj\Debug\oworld.pdb
